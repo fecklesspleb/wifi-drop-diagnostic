@@ -87,5 +87,3 @@ MIT (see `LICENSE`). Provided as-is, without warranty. This script changes nothi
 This code and README were written with AI assistance.
 
 Not affiliated with or endorsed by Microsoft. Windows and PowerShell are trademarks of the Microsoft group of companies.
-
-If you want the fixes too (step-by-step network fixes, DNS cache and network reset, plus slow startup, full drive and stuck updates), I sell a 40-page guide with the scripts: [Windows 11 Fix-It Guide + PowerShell Toolkit](https://pcfixitkits.gumroad.com/l/vgkvmp), $19.
