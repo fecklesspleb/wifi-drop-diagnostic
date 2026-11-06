@@ -1,0 +1,24 @@
+# wifi-drop-diagnostic
+
+> Read-only PowerShell script for Windows 10/11 that logs where Wi-Fi drops happen: the adapter, the link to the router, or past the router (the ISP side). It changes no settings. The only file it writes is the CSV you name, and its only network traffic is a ping to the router plus an optional internet host. MIT license. Maintained by fecklesspleb.
+
+Test status, as the README states it: the script parses, PSScriptAnalyzer reports 0 findings, and 12 Pester tests pass on PowerShell 7 on Linux with sample text and mocks. It has not yet been run on Windows 10/11 or on Windows PowerShell 5.1. `Get-WifiStatus` parses only the English `netsh` output layout.
+
+Usage: dot-source `wifi-drop-diagnostic.ps1`, then call `Get-WifiStatus`, `Get-WifiDisconnectEvent -Days 7` (event 8003), `Get-WifiAdapterPowerSetting` (needs admin), `Watch-WifiConnection -Path <csv>` and `Measure-WifiLog -Path <csv>`.
+
+## Docs
+
+- [README](https://github.com/fecklesspleb/wifi-drop-diagnostic/blob/main/README.md): functions, how to run, reading the verdict, limits, tests
+- [wifi-drop-diagnostic.ps1](https://github.com/fecklesspleb/wifi-drop-diagnostic/blob/main/wifi-drop-diagnostic.ps1): the script (about 240 lines)
+- [tests/wifi-drop-diagnostic.Tests.ps1](https://github.com/fecklesspleb/wifi-drop-diagnostic/blob/main/tests/wifi-drop-diagnostic.Tests.ps1): Pester tests
+
+## Microsoft sources
+
+- [Fix Wi-Fi connection issues in Windows](https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows): the fixes to try after the verdict
+- [Wireless network connectivity issues troubleshooting](https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/wireless-network-connectivity-issues-troubleshooting): `netsh wlan` and the WLAN-AutoConfig Operational log
+- [Get-NetAdapterPowerManagement](https://learn.microsoft.com/en-us/powershell/module/netadapter/get-netadapterpowermanagement): the adapter power setting it reads
+
+## Optional
+
+- [Windows 11 Fix-It Guide + PowerShell Toolkit](https://pcfixitkits.gumroad.com/l/vgkvmp): a paid 40-page guide ($19) by the same author, with step-by-step fixes
+- [LICENSE](https://github.com/fecklesspleb/wifi-drop-diagnostic/blob/main/LICENSE): MIT
